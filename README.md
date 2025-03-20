@@ -8,7 +8,7 @@ Before running the project, follow these steps:
 
 1. Run `npm install` to install the dependencies.
 2. Copy `.env-example` and create a new `.env` file.
-3. Replace `REACT_APP_API_URL` with your backend API URL.
+3. Replace `REACT_APP_API_URL` with your backend API URL exaple `https://localhost:7037/api`.
 
 ## Available Scripts
 
