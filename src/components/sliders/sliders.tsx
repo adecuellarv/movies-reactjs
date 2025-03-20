@@ -50,36 +50,48 @@ const Sliders = () => {
 
   return (
     <Fragment>
-      {!!movies.length &&
-        currentMovie && (
-          <div className="movie-slider">
-            <div className="main-slider">
-              <div
-                className={`main-slide ${fade ? "fade-in" : "fade-out"}`}
-                style={{ backgroundImage: `url(${currentMovie.movieImage})` }}
-              >
-                <div className="overlay"></div>
-                <div className="movie-info">
-                  <h1>{currentMovie.movieTitle}</h1>
-                  <p>Rating: {currentMovie.movieRaiting}</p>
-                </div>
+      {!!movies.length && currentMovie && (
+        <div className="movie-slider">
+          <div className="main-slider">
+            <div
+              className={`main-slide ${fade ? "fade-in" : "fade-out"}`}
+              style={{ backgroundImage: `url(${currentMovie.movieImage})` }}
+            >
+              <div className="overlay"></div>
+              <div className="movie-info">
+                <h1>{currentMovie.movieTitle}</h1>
+                <p>
+                  <span className="rating-stars">
+                    {Array.from({ length: 5 }, (_, index) => (
+                      <i
+                        key={index}
+                        className={`fa fa-star ${
+                          index < Math.floor(currentMovie.movieRaiting)
+                            ? "filled"
+                            : "empty"
+                        }`}
+                      />
+                    ))}
+                  </span>
+                </p>
               </div>
             </div>
-            <div className="thumbnail-slider">
-              {movies.map((movie) => (
-                <div
-                  key={movie.movieId}
-                  className={`thumbnail ${
-                    movie.movieId === currentMovie.movieId ? "active" : ""
-                  }`}
-                  onClick={() => handleThumbnailClick(movie)}
-                >
-                  <img src={movie.movieImage} alt={movie.movieTitle} />
-                </div>
-              ))}
-            </div>
           </div>
-        )}
+          <div className="thumbnail-slider">
+            {movies.map((movie) => (
+              <div
+                key={movie.movieId}
+                className={`thumbnail ${
+                  movie.movieId === currentMovie.movieId ? "active" : ""
+                }`}
+                onClick={() => handleThumbnailClick(movie)}
+              >
+                <img src={movie.movieImage} alt={movie.movieTitle} />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </Fragment>
   );
 };

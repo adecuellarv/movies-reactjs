@@ -53,6 +53,23 @@
           font-size: 1.5rem;
           margin: 0.5rem 0;
         }
+
+        .rating-stars {
+          .fa-star {
+            color: gold;
+            margin-right: 5px;
+          }
+          .fa-star-o {
+            color: lightgray;
+            margin-right: 5px;
+          }
+          .filled {
+            color: gold;
+          }
+          .empty {
+            color: lightgray;
+          }
+        }
       }
     }
   }
@@ -67,10 +84,12 @@
       margin: 0 10px;
       cursor: pointer;
       opacity: 0.6;
-      transition: opacity 0.3s ease-in-out;
+      transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 
       &.active {
         opacity: 1;
+        transform: scale(1.6);
+        margin: 0 50px;
       }
 
       img {
