@@ -65,11 +65,10 @@ const Sliders = () => {
                     {Array.from({ length: 5 }, (_, index) => (
                       <i
                         key={index}
-                        className={`fa fa-star ${
-                          index < Math.floor(currentMovie.movieRaiting)
+                        className={`fa fa-star ${index < Math.floor(currentMovie.movieRaiting)
                             ? "filled"
                             : "empty"
-                        }`}
+                          }`}
                       />
                     ))}
                   </span>
@@ -81,9 +80,8 @@ const Sliders = () => {
             {movies.map((movie) => (
               <div
                 key={movie.movieId}
-                className={`thumbnail ${
-                  movie.movieId === currentMovie.movieId ? "active" : ""
-                }`}
+                className={`thumbnail ${movie.movieId === currentMovie.movieId ? "active" : ""
+                  }`}
                 onClick={() => handleThumbnailClick(movie)}
               >
                 <img src={movie.movieImage} alt={movie.movieTitle} />

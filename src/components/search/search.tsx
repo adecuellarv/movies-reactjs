@@ -13,7 +13,7 @@ const Search: React.FC<SearchProps> = ({ setShowModal }) => {
     const [categories, setCategories] = useState<Category[]>([]);
     const [actors, setActors] = useState<Actor[]>([]);
     const [selectedCategory, setSelectedCategory] = useState<any | null>(
-    null
+        null
     );
     const [selectedActor, setSelectedActor] = useState<any | null>(null);
     const [movies, setMovies] = useState<IMovie[]>([]);
@@ -44,7 +44,7 @@ const Search: React.FC<SearchProps> = ({ setShowModal }) => {
         console.log(url);
 
         try {
-        const response: any = await axios.get(url);
+            const response: any = await axios.get(url);
             setMovies(response.data);
         } catch (error) {
             console.error("Error fetching movies", error);
@@ -60,7 +60,7 @@ const Search: React.FC<SearchProps> = ({ setShowModal }) => {
     useEffect(() => {
         const apiUrl = process.env.REACT_APP_API_URL;
         const getAllCategories = async () => {
-            const response:any = await axios.get(`${apiUrl}/categories`);
+            const response: any = await axios.get(`${apiUrl}/categories`);
             const arrayList = [
                 { categoryId: 0, categoryName: 'Todas' },
                 ...response?.data
@@ -96,7 +96,7 @@ const Search: React.FC<SearchProps> = ({ setShowModal }) => {
                                 value: category.categoryId,
                                 label: category.categoryName,
                             }))}
-                            value={ selectedCategory ? { value: selectedCategory.categoryId, label: selectedCategory.categoryName } : null }
+                            value={selectedCategory ? { value: selectedCategory.categoryId, label: selectedCategory.categoryName } : null}
                             onChange={(selectedOption) => setSelectedCategory(categories.find((category) => category.categoryId === selectedOption?.value))}
                             placeholder="Select Category"
                             className="select-custom"
@@ -120,8 +120,8 @@ const Search: React.FC<SearchProps> = ({ setShowModal }) => {
                         {movies?.length ? (
                             movies.map((movie) => (
                                 <div key={movie.movieId} className="movie">
-                                <img src={movie.movieImage} alt={movie.movieTitle} />
-                                <p>{movie.movieTitle}</p>
+                                    <img src={movie.movieImage} alt={movie.movieTitle} />
+                                    <p>{movie.movieTitle}</p>
                                 </div>
                             ))
                         ) : (
